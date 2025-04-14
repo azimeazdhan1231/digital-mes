@@ -1,0 +1,599 @@
+/* style.css - Custom Styles for Mektronicsgroup Dashboard */
+
+/* CSS Variables */
+:root {
+    --primary-light: #3b82f6; /* Blue 500 */
+    --primary: #1d4ed8;     /* Blue 700 */
+    --primary-dark: #1e40af;  /* Blue 800 */
+    --secondary-light: #60a5fa;/* Blue 400 */
+    --secondary: #2563eb;    /* Blue 600 */
+    --accent: #facc15;      /* Yellow 400 */
+    --accent-dark: #eab308; /* Yellow 500 */
+    --warning: #f97316;     /* Orange 500 */
+    --success: #10b981;     /* Emerald 500 */
+    --light-bg: #f9fafb;    /* Gray 50 */
+    --light-card: #ffffff;
+    --light-text: #1f2937;   /* Gray 800 */
+    --light-text-secondary: #6b7280; /* Gray 500 */
+    --dark-bg: #111827;     /* Gray 900 */
+    --dark-card: #1f2937;    /* Gray 800 */
+    --dark-text: #f3f4f6;    /* Gray 100 */
+    --dark-text-secondary: #9ca3af; /* Gray 400 */
+    --dark-border: #374151;  /* Gray 700 */
+  }
+  
+  /* Base Body Styles */
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body.dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
+  
+  /* Navigation */
+  .navbar {
+    background-color: var(--light-card);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease;
+  }
+  body.dark .navbar {
+    background-color: var(--dark-card);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  .nav-link {
+    position: relative;
+    padding-bottom: 4px;
+    color: var(--light-text-secondary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  body.dark .nav-link { color: var(--dark-text-secondary); }
+  .nav-link:hover, .nav-link.active { color: var(--primary); }
+  body.dark .nav-link:hover, body.dark .nav-link.active { color: var(--secondary-light); }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+  }
+  body.dark .nav-link::after { background-color: var(--accent); }
+  .nav-link:hover::after, .nav-link.active::after { width: 60%; }
+  
+  /* Hero Section */
+  .hero-bg {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+    background-size: 200% 200%; /* For potential animation */
+    animation: gradientShift 10s ease infinite; /* Subtle gradient animation */
+  }
+  @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+  }
+  
+  /* Cards */
+  .card {
+    background: var(--light-card);
+    border-radius: 12px; /* Slightly softer radius */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 1px solid transparent; /* Placeholder for dark mode border */
+  }
+  body.dark .card {
+    background: var(--dark-card);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    border-color: var(--dark-border);
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
+  body.dark .card:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  
+  /* Tabs */
+  .tab-button {
+    background: transparent;
+    color: var(--light-text-secondary);
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb; /* Light border */
+    margin-right: 0.5rem;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent wrapping within button */
+  }
+  body.dark .tab-button {
+    color: var(--dark-text-secondary);
+    border-color: var(--dark-border);
+  }
+  .tab-button:hover {
+    background-color: #f3f4f6; /* Lighter gray hover */
+    color: var(--primary);
+  }
+  body.dark .tab-button:hover {
+    background-color: #374151; /* Darker gray hover */
+    color: var(--secondary-light);
+  }
+  .tab-button.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 2px 5px rgba(29, 78, 216, 0.3);
+  }
+  body.dark .tab-button.active {
+    background: var(--secondary-light);
+    color: var(--dark-bg);
+    border-color: var(--secondary-light);
+    box-shadow: 0 2px 5px rgba(96, 165, 250, 0.3);
+  }
+  .tab-content { display: none; animation: fadeIn 0.5s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  
+  /* Tab container for horizontal scroll on mobile */
+  .tab-buttons-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 10px; /* Space for scrollbar if needed */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .tab-buttons-container::-webkit-scrollbar { display: none; } /* Chrome, Safari, Opera */
+  
+  
+  /* Modals */
+  .modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(17, 24, 39, 0.6); /* Darker semi-transparent bg */
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .modal.show { /* Class added by JS to show */
+      opacity: 1;
+      display: flex;
+  }
+  .modal-content {
+    background: var(--light-card);
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh; /* Use viewport height */
+    overflow-y: auto; /* Ensure scrollability */
+    position: relative;
+    transform: scale(0.95); /* Start slightly smaller */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  .modal.show .modal-content {
+      transform: scale(1); /* Scale to full size */
+  }
+  body.dark .modal-content {
+      background: var(--dark-card);
+      color: var(--dark-text);
+      border: 1px solid var(--dark-border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  .close-modal {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 1.5rem; line-height: 1;
+    cursor: pointer;
+    color: var(--light-text-secondary);
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  .close-modal:hover {
+      color: var(--warning);
+      transform: rotate(90deg);
+  }
+  body.dark .close-modal { color: var(--dark-text-secondary); }
+  body.dark .close-modal:hover { color: var(--warning); }
+  
+  /* Sections */
+  .section {
+      scroll-margin-top: 80px; /* Adjust for sticky nav height */
+      padding-top: 4rem; /* Default top padding */
+      padding-bottom: 4rem; /* Default bottom padding */
+  }
+  /* Background alternates based on light/dark mode automatically via body class */
+  .section-bg-alt { background-color: var(--light-card); }
+  body.dark .section-bg-alt { background-color: var(--dark-card); }
+  
+  /* Charts */
+  .chart-container {
+      height: 300px; /* Fixed height */
+      position: relative;
+      width: 100%; /* Ensure it takes full width */
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    background: #e5e7eb;
+    border-radius: 9999px;
+    height: 8px; /* Slightly thinner */
+    overflow: hidden;
+    width: 100%;
+  }
+  body.dark .progress-bar { background: var(--dark-border); }
+  .progress {
+    background: linear-gradient(90deg, var(--secondary-light) 0%, var(--primary) 100%);
+    height: 100%;
+    transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1); /* Smoother ease-out */
+    border-radius: 9999px;
+  }
+  
+  /* Chatbot */
+  .chatbot-container {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1rem;
+    height: 350px; /* Fixed height */
+    overflow-y: auto;
+    background-color: var(--light-bg); /* Match main light bg */
+    display: flex;
+    flex-direction: column; /* Stack messages vertically */
+  }
+  body.dark .chatbot-container {
+      border-color: var(--dark-border);
+      background-color: var(--dark-bg); /* Match main dark bg */
+  }
+  .chat-message {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 18px; /* Bubble shape */
+    max-width: 80%;
+    line-height: 1.5;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    word-wrap: break-word; /* Prevent long words overflowing */
+  }
+  .chat-message.user {
+      background: var(--primary);
+      color: white;
+      margin-left: auto; /* Align right */
+      border-bottom-right-radius: 6px; /* Slightly tweak shape */
+      align-self: flex-end;
+  }
+  .chat-message.bot {
+      background: #e5e7eb; /* Light gray for bot */
+      color: var(--light-text);
+      margin-right: auto; /* Align left */
+      border-bottom-left-radius: 6px; /* Slightly tweak shape */
+      align-self: flex-start;
+  }
+  body.dark .chat-message.user {
+      background: var(--secondary-light);
+      color: var(--dark-bg); /* High contrast */
+  }
+  body.dark .chat-message.bot {
+      background: var(--dark-card); /* Use card bg for bot */
+      color: var(--dark-text);
+      border: 1px solid var(--dark-border);
+  }
+  
+  /* Buttons (using CSS variables defined earlier) */
+  /* Apply these classes directly in HTML now */
+  .btn {
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px; /* Pill shape */
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem; /* Space for icons */
+      border: 1px solid transparent;
+      cursor: pointer;
+  }
+  .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: 0 4px 10px rgba(29, 78, 216, 0.2);
+  }
+  .btn-primary:hover {
+      background-color: var(--primary-dark);
+      box-shadow: 0 6px 15px rgba(30, 64, 175, 0.3);
+      transform: translateY(-2px);
+  }
+  .btn-secondary {
+      background-color: var(--secondary-light);
+      color: white;
+      box-shadow: 0 4px 10px rgba(96, 165, 250, 0.2);
+  }
+  .btn-secondary:hover {
+      background-color: var(--secondary);
+      box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+      transform: translateY(-2px);
+  }
+  .btn-accent {
+      background-color: var(--accent);
+      color: var(--light-text); /* Dark text on yellow */
+      box-shadow: 0 4px 10px rgba(250, 204, 21, 0.2);
+  }
+  .btn-accent:hover {
+      background-color: var(--accent-dark);
+      box-shadow: 0 6px 15px rgba(234, 179, 8, 0.3);
+      transform: translateY(-2px);
+  }
+  .btn-outline {
+      background-color: transparent;
+      border-color: var(--primary);
+      color: var(--primary);
+  }
+  .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+  }
+  body.dark .btn-outline {
+      border-color: var(--secondary-light);
+      color: var(--secondary-light);
+  }
+  body.dark .btn-outline:hover {
+      background-color: var(--secondary-light);
+      color: var(--dark-bg);
+  }
+  /* Disabled button state */
+  button:disabled, .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+  }
+  
+  
+  /* Floating Action Buttons */
+  .fab {
+    position: fixed;
+    border-radius: 50%;
+    width: 56px; height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.4s ease;
+    z-index: 900;
+  }
+  .fab:hover { transform: scale(1.1) rotate(5deg); }
+  .live-chat {
+    bottom: 20px; right: 20px;
+    background: var(--primary); color: white;
+  }
+  .back-to-top {
+    bottom: 90px; right: 20px;
+    background: var(--secondary-light); color: white;
+    display: none; /* JS controls visibility via 'visible' class */
+    opacity: 0;
+  }
+  .back-to-top.visible {
+      display: flex;
+      opacity: 1;
+  }
+  
+  /* KPI Counters & Labels */
+  .counter {
+      font-size: 2.25rem; /* Slightly smaller */
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      transition: color 0.3s ease; /* Add transition */
+  }
+  body.dark .counter { color: var(--secondary-light); }
+  
+  .kpi-label {
+      color: var(--light-text-secondary);
+      font-size: 0.875rem; /* 14px */
+      margin-bottom: 0.5rem;
+      transition: color 0.3s ease; /* Add transition */
+  }
+  body.dark .kpi-label { color: var(--dark-text-secondary); }
+  
+  .kpi-change {
+      font-size: 0.75rem; /* 12px */
+      font-weight: 500;
+      transition: color 0.3s ease; /* Add transition */
+  }
+  /* Color defined by text-success or text-warning class */
+  .text-success { color: var(--success); }
+  .text-warning { color: var(--warning); }
+  
+  /* Input fields, Select, Range */
+  /* Use Tailwind classes in HTML, but add focus and dark mode overrides here */
+  input[type="text"], input[type="range"], select, label {
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+  input[type="text"], select {
+      background-color: var(--light-card); /* Tailwind bg-white */
+      color: var(--light-text); /* Tailwind text-gray-900 */
+      border: 1px solid #d1d5db; /* Tailwind border-gray-300 */
+  }
+  body.dark input[type="text"], body.dark select {
+      background-color: var(--dark-card);
+      color: var(--dark-text);
+      border-color: var(--dark-border);
+  }
+  
+  /* Focus Rings */
+  input[type="text"]:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  }
+  body.dark input[type="text"]:focus, body.dark select:focus {
+      border-color: var(--secondary-light);
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+  }
+  
+  /* Range Slider Styling */
+  input[type="range"] {
+       appearance: none;
+       background: transparent; /* Remove default background */
+       cursor: pointer;
+       width: 100%; /* Or specific width */
+  }
+  /* Track */
+  input[type="range"]::-webkit-slider-runnable-track {
+      background: #e5e7eb; /* Tailwind gray-200 */
+      height: 8px;
+      border-radius: 9999px;
+  }
+  body.dark input[type="range"]::-webkit-slider-runnable-track {
+      background: #4b5563; /* Tailwind gray-600 */
+  }
+  input[type="range"]::-moz-range-track {
+      background: #e5e7eb; /* Tailwind gray-200 */
+      height: 8px;
+      border-radius: 9999px;
+  }
+  body.dark input[type="range"]::-moz-range-track {
+       background: #4b5563; /* Tailwind gray-600 */
+  }
+  /* Thumb */
+  input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      margin-top: -4px; /* Adjust to center vertically on the track (height/2 - thumb_height/2) */
+      height: 16px;
+      width: 16px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      border: none;
+      transition: background-color 0.3s ease;
+  }
+  body.dark input[type="range"]::-webkit-slider-thumb {
+       background-color: var(--secondary-light);
+  }
+  input[type="range"]::-moz-range-thumb {
+      height: 16px;
+      width: 16px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      border: none;
+       transition: background-color 0.3s ease;
+  }
+  body.dark input[type="range"]::-moz-range-thumb {
+       background-color: var(--secondary-light);
+  }
+  
+  
+  /* Animation Utilities */
+  .animate-fadeInUp {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    /* Mobile Navigation - Controlled by JS adding/removing 'hidden' and 'active' */
+    .nav-menu-container { display: none; }
+    .hamburger { display: block; }
+    .nav-menu.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%; /* Position below the navbar */
+      left: 0; right: 0;
+      background: var(--light-card);
+      padding: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-top: 1px solid #e5e7eb;
+      animation: slideDown 0.3s ease-out;
+    }
+    body.dark .nav-menu.active {
+      background: var(--dark-card);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border-top-color: var(--dark-border);
+    }
+    /* Ensure links fill width in mobile menu */
+     .nav-menu a.nav-link {
+          margin: 0.75rem 0;
+          padding-bottom: 8px;
+          width: 100%;
+          text-align: center;
+     }
+     .nav-menu button#theme-toggle-mobile {
+         margin-top: 0.5rem; /* Adjust spacing if needed */
+     }
+  
+  
+    .chart-container { height: 250px; }
+  
+    .section {
+       padding-top: 3rem;
+       padding-bottom: 3rem;
+    }
+  
+    h1 { font-size: 2.25rem; line-height: 2.5rem; } /* Adjust h1 size */
+    h2 { font-size: 1.875rem; line-height: 2.25rem; } /* Adjust h2 size */
+  
+    /* Grid adjustments if needed, though Tailwind handles basic grid wrapping */
+    /* e.g., make KPI grid 2 cols instead of 1 */
+     #kpi .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  
+  }
+  
+  @media (min-width: 769px) {
+    .hamburger { display: none; }
+    .nav-menu-container { display: flex; } /* Ensure desktop menu shows */
+    .nav-menu { display: none !important; } /* Ensure mobile dropdown is hidden */
+  }
+  
+  @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Specific Dark Mode Overrides not covered by variables */
+  body.dark .text-gray-500 { color: var(--dark-text-secondary); }
+  body.dark .text-gray-600 { color: var(--dark-text-secondary); }
+  body.dark .text-gray-700 { color: var(--dark-text); }
+  /* etc., if you find Tailwind classes not respecting dark mode via parent body.dark */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

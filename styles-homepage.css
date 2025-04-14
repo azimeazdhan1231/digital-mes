@@ -1,0 +1,93 @@
+/* Base font and scroll */
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  /* Smooth section transitions */
+  section {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Override Tailwind's hover underline if needed */
+  a:hover {
+    text-decoration: none !important;
+  }
+  
+  /* Dark mode section text color fallback */
+  .dark section {
+    color: #e5e7eb;
+  }
+  
+  /* Reduce gap after hero section */
+  #home {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* Reduce top padding in #services section */
+  #services {
+    padding-top: 2rem !important;
+  }
+  
+  /* Add icon spacing if needed */
+  .service-icon {
+    font-size: 2rem;
+    color: #25D366;
+    margin-bottom: 1rem;
+  }
+  
+  /* Responsive hover effect for cards */
+  .service-card {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .service-card:hover {
+    transform: scale(1.05);
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .fade-slide-in {
+    animation: fadeSlideIn 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  @keyframes fadeSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

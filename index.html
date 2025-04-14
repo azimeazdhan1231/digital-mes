@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mektronicsgroup Premium Digital Marketing Dashboard - Advanced analytics, paid advertising strategies, and AI-driven insights for Website, Facebook, Instagram, and YouTube.">
+  <meta name="keywords" content="digital marketing, paid advertising, social media dashboard, Mektronicsgroup, AI insights, generators, Bangladesh">
+  <meta name="author" content="Mektronics Technical Services Ltd.">
+  <title>Mektronicsgroup | Premium Marketing Dashboard</title>
+
+  <!-- Tailwind CSS (using CDN for simplicity as requested) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Link to your Custom CSS File -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-900"> <!-- Initial state -->
+
+
+ 
+    <nav class="navbar flex items-center justify-between py-4 px-6 bg-gray-800 text-white">
+        <!-- Logo Section -->
+        <div class="flex items-center">
+          <img src="images/mektronics.logo.png" alt="Mektronics Logo" class="w-10 h-10 mr-3">
+          <h1 class="text-xl font-semibold">MekTronics Group</h1>
+        </div>
+
+
+  <!-- Navigation Bar
+  <nav class="navbar sticky top-0 z-50 py-4 px-6">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">Mektronicsgroup</a> -->
+
+      <!-- Hamburger Icon (Mobile) -->
+      <div class="hamburger md:hidden cursor-pointer text-gray-600 dark:text-gray-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="nav-menu-container hidden md:flex space-x-6 items-center">
+        <a href="homepage.html" class="nav-link active">Home</a> <!-- Home Active -->
+        <a href="company-details.html" class="nav-link">Company Details</a> <!-- Link updated -->
+        <a href="products.html" class="nav-link">Products & Services</a> <!-- Link updated -->
+        <a href="#contact" class="nav-link">Contact</a> <!-- Anchor link to footer -->
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition text-gray-600 dark:text-gray-300" aria-label="Toggle theme">
+          <!-- Sun icon placeholder -->
+          <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 14.95a1 1 0 101.414 1.414l.707-.707a1 1 0 10-1.414-1.414l-.707.707zm-.707-7.071a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          <!-- Moon icon placeholder -->
+          <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu (Initially Hidden) -->
+    <div class="nav-menu hidden md:hidden mt-4 border-t border-gray-200 dark:border-gray-700">
+      <a href="index.html" class="nav-link active">Home</a> <!-- Home Active -->
+      <a href="company-details.html" class="nav-link">Company Details</a> <!-- Link updated -->
+      <a href="products.html" class="nav-link">Products & Services</a> <!-- Link updated -->
+      <a href="#contact" class="nav-link">Contact</a> <!-- Anchor link -->
+      <button id="theme-toggle-mobile" class="w-full mt-2 p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition text-gray-600 dark:text-gray-300 flex items-center justify-center gap-2" aria-label="Toggle theme">
+          <span id="theme-toggle-mobile-icon"></span> <!-- Icon will be added by JS -->
+          <span id="theme-toggle-mobile-text">Dark Mode</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-bg text-white py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-5 tracking-tight animate-fadeInUp">Elevate Your Marketing</h1>
+      <p class="text-lg md:text-xl mb-10 opacity-90 max-w-2xl mx-auto animate-fadeInUp delay-1">Harness AI-driven insights, advanced analytics, and powerful advertising strategies with Mektronicsgroup.</p>
+      <!-- Link to Products Page -->
+      <a href="products.html" target="_blank" rel="noopener noreferrer" class="btn btn-accent animate-fadeInUp delay-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L9 6.414V17a1 1 0 102 0V6.414l4.293 4.293a1 1 0 001.414-1.414l-7-7z"></path> <!-- Icon for 'explore' -->
+        </svg>
+        <span>Explore Products</span>
+      </a>
+    </div>
+  </section>
+
+  <main class="py-10">
+    <!-- KPI Dashboard -->
+    <section id="kpi" class="py-12 px-6 section">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-[var(--primary)] dark:text-[var(--secondary-light)] mb-10">Live KPI Dashboard</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- KPI Card 1 -->
+          <div class="card p-6 text-center animate-fadeInUp delay-1">
+            <p class="kpi-label">Website Visitors</p>
+            <p class="counter" id="kpi-visitors">0</p>
+            <p class="kpi-change text-success mt-1">+12% this month</p>
+          </div>
+          <!-- KPI Card 2 -->
+          <div class="card p-6 text-center animate-fadeInUp delay-2">
+            <p class="kpi-label">Social Reach</p>
+            <p class="counter" id="kpi-reach">0</p>
+            <p class="kpi-change text-success mt-1">+18% this month</p>
+          </div>
+          <!-- KPI Card 3 -->
+          <div class="card p-6 text-center animate-fadeInUp delay-3">
+            <p class="kpi-label">Ad Conversions</p>
+            <p class="counter" id="kpi-conversions">0</p>
+            <p class="kpi-change text-success mt-1">+10% this month</p>
+          </div>
+          <!-- KPI Card 4 -->
+          <div class="card p-6 text-center animate-fadeInUp delay-4">
+            <p class="kpi-label">Engagement Rate</p>
+            <p class="counter" id="kpi-engagement">0%</p>
+            <p class="kpi-change text-success mt-1">+5% this month</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paid Advertising Strategy Section -->
+    <section id="paid-advertising" class="py-16 px-6 section section-bg-alt">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-[var(--primary)] dark:text-[var(--secondary-light)] mb-10">Paid Advertising Strategy</h2>
+        <div class="card p-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <!-- Strategy Details -->
+            <div>
+              <h3 class="text-xl font-semibold text-[var(--primary)] dark:text-[var(--secondary-light)] mb-4">Targeted Campaign Example</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Focusing on Google Search Ads for high-intent leads in key regions.</p>
+              <ul class="list-none space-y-3 text-gray-700 dark:text-gray-300 text-base">
+                <li class="flex items-start"><span class="text-lg text-[var(--primary)] dark:text-[var(--secondary-light)] mr-2 mt-[-2px]">🎯</span> <strong>Keywords:</strong> "generator Bangladesh", "diesel generator price", "Forest City generator BD"</li>
+                <li class="flex items-start"><span class="text-lg text-[var(--primary)] dark:text-[var(--secondary-light)] mr-2 mt-[-2px]">📍</span> <strong>Targeting:</strong> Businesses in Dhaka & Chittagong (Industrial Zones).</li>
+                <li class="flex items-start"><span class="text-lg text-[var(--primary)] dark:text-[var(--secondary-light)] mr-2 mt-[-2px]">💰</span> <strong>Focus Budget:</strong> 50% of Ad Spend (Est. BDT 250,000)</li>
+              </ul>
+              <button class="mt-6 btn btn-secondary" onclick="openAdPreview()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                  <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                </svg>
+                <span>Customize & Preview Ad</span>
+              </button>
+            </div>
+            <!-- Budget Allocation & Simulator -->
+            <div>
+              <h3 class="text-xl font-semibold text-[var(--primary)] dark:text-[var(--secondary-light)] mb-4">Budget Allocation</h3>
+              <div class="space-y-3 mb-8">
+                <div>
+                    <div class="flex justify-between text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+                        <span>Google Search Ads</span><span>50%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 50%"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+                        <span>Facebook & Instagram Ads</span><span>35%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 35%"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+                        <span>YouTube Ads</span><span>15%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 15%"></div></div>
+                </div>
+              </div>
+
+              <h3 class="text-xl font-semibold text-[var(--primary)] dark:text-[var(--secondary-light)] mb-4">Budget Simulator (Sample)</h3>
+              <div class="mb-4">
+                <label for="budget-slider" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Adjust Monthly Budget (BDT x 1000):</label>
+                <div class="flex items-center space-x-4">
+                    <input type="range" id="budget-slider" min="50" max="1000" value="250" step="10" class="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer accent-[var(--primary)] dark:accent-[var(--secondary-light)]">
+                    <span id="budget-value" class="text-lg font-semibold text-[var(--primary)] dark:text-[var(--secondary-light)] min-w-[100px] text-right">BDT 250k</span>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-4 text-center border-t border-gray-200 dark:border-gray-700 pt-4">
+                <div>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Proj. Clicks</p>
+                  <p id="projected-clicks" class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">1,250</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Proj. Leads</p>
+                  <p id="projected-conversions" class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">100</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Est. CPL</p>
+                  <p id="projected-cpa" class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">BDT 2.5k</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Website Performance Section -->
+    <section id="website" class="py-16 px-6 section">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-[var(--primary)] dark:text-[var(--secondary-light)] mb-10">Website Performance</h2>
+        <div class="card p-6">
+          <div class="tab-buttons-container mb-6 border-b border-gray-200 dark:border-gray-700 pb-2">
+            <button class="tab-button active" data-tab="web-metrics">Key Metrics</button>
+            <button class="tab-button" data-tab="web-chart">Traffic Sources</button>
+            <button class="tab-button" data-tab="web-ai-insights">AI Recommendations</button>
+          </div>
+          <!-- Website Metrics -->
+          <div id="web-metrics" class="tab-content active">
+             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Monthly Visitors</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">1,680</p>
+                <p class="kpi-change text-success mt-1">+12%</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Page Views</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">4,950</p>
+                <p class="kpi-change text-success mt-1">+8%</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Bounce Rate</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">58%</p>
+                <p class="kpi-change text-warning mt-1">Needs improvement</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Avg. Session</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">2m 15s</p>
+                <p class="kpi-change text-success mt-1">+5%</p>
+              </div>
+            </div>
+          </div>
+          <!-- Website Chart -->
+          <div id="web-chart" class="tab-content">
+            <div class="flex justify-end space-x-2 mb-4">
+              <label for="web-chart-filter" class="text-sm self-center text-gray-600 dark:text-gray-400">Filter:</label>
+              <select id="web-chart-filter" class="border rounded-lg px-2 py-1 text-sm bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600">
+                <option value="all">All Traffic</option>
+                <option value="direct">Direct</option>
+                <option value="social">Social Media</option>
+                <option value="organic">Organic Search</option>
+                <option value="referral">Referral</option>
+              </select>
+            </div>
+            <div class="chart-container">
+              <canvas id="webChart"></canvas>
+            </div>
+          </div>
+          <!-- Website AI Insights -->
+          <div id="web-ai-insights" class="tab-content">
+            <h3 class="text-xl font-semibold text-[var(--primary)] dark:text-[var(--secondary-light)] mb-4">AI-Powered Recommendations</h3>
+            <ul class="list-none space-y-3">
+              <li class="flex items-start p-3 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+                  <span class="text-lg text-blue-500 mr-3 mt-[-2px]">💡</span>
+                  <span class="text-gray-700 dark:text-gray-300">Optimize product page load speed (target < 2s) to potentially reduce bounce rate by 15%.</span>
+              </li>
+              <li class="flex items-start p-3 bg-green-50 dark:bg-green-900/30 rounded-lg">
+                  <span class="text-lg text-green-500 mr-3 mt-[-2px]">📈</span>
+                  <span class="text-gray-700 dark:text-gray-300">Add prominent 'Request Quote' forms on key service pages to increase lead capture by ~20%.</span>
+              </li>
+               <li class="flex items-start p-3 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg">
+                  <span class="text-lg text-yellow-500 mr-3 mt-[-2px]">🔧</span>
+                  <span class="text-gray-700 dark:text-gray-300">Implement schema markup (Product, LocalBusiness) for enhanced SEO visibility and rich snippets.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facebook Performance Section -->
+    <section id="facebook" class="py-16 px-6 section section-bg-alt">
+       <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-[var(--primary)] dark:text-[var(--secondary-light)] mb-10">Facebook Performance</h2>
+        <div class="card p-6">
+          <div class="tab-buttons-container mb-6 border-b border-gray-200 dark:border-gray-700 pb-2">
+            <button class="tab-button active" data-tab="fb-metrics">Key Metrics</button>
+            <button class="tab-button" data-tab="fb-chart">Engagement Breakdown</button>
+            <button class="tab-button" data-tab="fb-ai-insights">AI Recommendations</button>
+          </div>
+          <!-- Facebook Metrics -->
+          <div id="fb-metrics" class="tab-content active">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Impressions</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">24.3K</p>
+                <p class="kpi-change text-success mt-1">+25%</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Reach</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">11.8K</p>
+                <p class="kpi-change text-success mt-1">+19%</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Engagements</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">1.4K</p>
+                <p class="kpi-change text-success mt-1">+14%</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Page Likes (Net)</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">+150</p>
+                 <p class="kpi-change text-success mt-1">Last 30d</p>
+              </div>
+            </div>
+          </div>
+          <!-- Facebook Chart -->
+          <div id="fb-chart" class="tab-content">
+             <div class="flex justify-end space-x-2 mb-4">
+              <label for="fb-chart-filter" class="text-sm self-center text-gray-600 dark:text-gray-400">Filter:</label>
+              <select id="fb-chart-filter" class="border rounded-lg px-2 py-1 text-sm bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600">
+                <option value="all">All Content</option>
+                <option value="photos">Product Photos</option>
+                <option value="videos">Videos</option>
+                <option value="links">Link Posts</option>
+                <option value="text">Text Updates</option>
+              </select>
+            </div>
+            <div class="chart-container">
+                <canvas id="facebookChart"></canvas>
+            </div>
+          </div>
+          <!-- Facebook AI Insights -->
+          <div id="fb-ai-insights" class="tab-content">
+            <h3 class="text-xl font-semibold text-[var(--primary)] dark:text-[var(--secondary-light)] mb-4">AI-Powered Recommendations</h3>
+             <ul class="list-none space-y-3">
+              <li class="flex items-start p-3 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+                  <span class="text-lg text-blue-500 mr-3 mt-[-2px]">💡</span>
+                  <span class="text-gray-700 dark:text-gray-300">Increase posting frequency to 4-5 times per week (mix content types) for potential 20% reach increase.</span>
+              </li>
+              <li class="flex items-start p-3 bg-green-50 dark:bg-green-900/30 rounded-lg">
+                  <span class="text-lg text-green-500 mr-3 mt-[-2px]">📈</span>
+                  <span class="text-gray-700 dark:text-gray-300">Run targeted lead generation ads focusing on 'Business Owners' & 'Engineers' in Dhaka for higher quality leads.</span>
+              </li>
+               <li class="flex items-start p-3 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg">
+                  <span class="text-lg text-yellow-500 mr-3 mt-[-2px]">🔧</span>
+                   <span class="text-gray-700 dark:text-gray-300">Utilize short video ads (15-30s) showcasing generator features to improve engagement by ~25% compared to static images.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram Performance Section -->
+    <section id="instagram" class="py-16 px-6 section">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-[var(--primary)] dark:text-[var(--secondary-light)] mb-10">Instagram Performance</h2>
+        <div class="card p-6">
+          <div class="tab-buttons-container mb-6 border-b border-gray-200 dark:border-gray-700 pb-2">
+            <button class="tab-button active" data-tab="ig-metrics">Key Metrics</button>
+            <button class="tab-button" data-tab="ig-chart">Follower Growth</button>
+            <button class="tab-button" data-tab="ig-ai-insights">AI Recommendations</button>
+          </div>
+          <!-- Instagram Metrics -->
+          <div id="ig-metrics" class="tab-content active">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+               <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Followers</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">850</p>
+                <p class="kpi-change text-success mt-1">+85 / 30d</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Posts</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">115</p>
+                 <p class="kpi-change text-gray-500 dark:text-gray-400 mt-1">Total</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Avg. Engagement/Post</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">4.5%</p>
+                <p class="kpi-change text-success mt-1">+0.5%</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Profile Visits</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">1.2K</p>
+                 <p class="kpi-change text-success mt-1">Last 30d</p>
+              </div>
+            </div>
+          </div>
+          <!-- Instagram Chart -->
+          <div id="ig-chart" class="tab-content">
+            <div class="chart-container">
+              <canvas id="instagramChart"></canvas>
+            </div>
+          </div>
+          <!-- Instagram AI Insights -->
+          <div id="ig-ai-insights" class="tab-content">
+            <h3 class="text-xl font-semibold text-[var(--primary)] dark:text-[var(--secondary-light)] mb-4">AI-Powered Recommendations</h3>
+             <ul class="list-none space-y-3">
+              <li class="flex items-start p-3 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+                  <span class="text-lg text-blue-500 mr-3 mt-[-2px]">💡</span>
+                  <span class="text-gray-700 dark:text-gray-300">Post 3-4 high-quality Reels per week showcasing projects or generator features to potentially accelerate follower growth by 50%.</span>
+              </li>
+              <li class="flex items-start p-3 bg-green-50 dark:bg-green-900/30 rounded-lg">
+                  <span class="text-lg text-green-500 mr-3 mt-[-2px]">📈</span>
+                  <span class="text-gray-700 dark:text-gray-300">Collaborate with relevant local business influencers or pages (e.g., construction, events) for cross-promotion to gain ~20% more reach.</span>
+              </li>
+               <li class="flex items-start p-3 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg">
+                  <span class="text-lg text-yellow-500 mr-3 mt-[-2px]">🔧</span>
+                  <span class="text-gray-700 dark:text-gray-300">Use Instagram Stories with interactive polls and Q&A stickers related to power needs to boost engagement by ~15%.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YouTube Performance Section -->
+    <section id="youtube" class="py-16 px-6 section section-bg-alt">
+       <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-[var(--primary)] dark:text-[var(--secondary-light)] mb-10">YouTube Performance</h2>
+        <div class="card p-6">
+          <div class="tab-buttons-container mb-6 border-b border-gray-200 dark:border-gray-700 pb-2">
+            <button class="tab-button active" data-tab="yt-metrics">Key Metrics</button>
+            <button class="tab-button" data-tab="yt-chart">Views Over Time</button>
+            <button class="tab-button" data-tab="yt-ai-insights">AI Recommendations</button>
+          </div>
+          <!-- YouTube Metrics -->
+          <div id="yt-metrics" class="tab-content active">
+             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Subscribers</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">210</p>
+                <p class="kpi-change text-success mt-1">+35 / 30d</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Total Videos</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">25</p>
+                <p class="kpi-change text-gray-500 dark:text-gray-400 mt-1">Published</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Total Views</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">15.6K</p>
+                <p class="kpi-change text-success mt-1">+2.1K / 30d</p>
+              </div>
+              <div class="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <p class="kpi-label">Avg. View Duration</p>
+                <p class="text-2xl font-bold text-[var(--primary)] dark:text-[var(--secondary-light)]">1m 45s</p>
+                 <p class="kpi-change text-success mt-1">+10s</p>
+              </div>
+            </div>
+          </div>
+          <!-- YouTube Chart -->
+          <div id="yt-chart" class="tab-content">
+             <div class="chart-container">
+                 <canvas id="youtubeChart"></canvas>
+             </div>
+          </div>
+          <!-- YouTube AI Insights -->
+          <div id="yt-ai-insights" class="tab-content">
+            <h3 class="text-xl font-semibold text-[var(--primary)] dark:text-[var(--secondary-light)] mb-4">AI-Powered Recommendations</h3>
+             <ul class="list-none space-y-3">
+              <li class="flex items-start p-3 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+                  <span class="text-lg text-blue-500 mr-3 mt-[-2px]">💡</span>
+                   <span class="text-gray-700 dark:text-gray-300">Publish 1-2 videos per week (e.g., maintenance tips, case studies) consistently to attract subscribers (target 100+ new subs next quarter).</span>
+              </li>
+              <li class="flex items-start p-3 bg-green-50 dark:bg-green-900/30 rounded-lg">
+                  <span class="text-lg text-green-500 mr-3 mt-[-2px]">📈</span>
+                  <span class="text-gray-700 dark:text-gray-300">Optimize video titles and descriptions with relevant keywords ("diesel generator maintenance Bangladesh") for ~10% better search visibility.</span>
+              </li>
+               <li class="flex items-start p-3 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg">
+                  <span class="text-lg text-yellow-500 mr-3 mt-[-2px]">🔧</span>
+                  <span class="text-gray-700 dark:text-gray-300">Utilize YouTube End Screens and Cards linking to product pages or contact forms to potentially increase website referrals by 15%.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Chatbot Section -->
+    <section id="ai-chatbot" class="py-16 px-6 section">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-[var(--primary)] dark:text-[var(--secondary-light)] mb-10">AI Marketing Assistant</h2>
+        <div class="card p-6 shadow-xl dark:shadow-2xl">
+          <div class="chatbot-container mb-4" id="chatbot-container">
+            <!-- Initial Bot Message -->
+            <div class="chat-message bot">Hello! I'm your AI Marketing Assistant. Ask me about campaign ideas, performance analysis, or specific generator queries.</div>
+          </div>
+          <div class="flex space-x-3">
+            <input type="text" id="chatbot-input" placeholder="Ask something... e.g., 'Suggest Facebook post ideas'" class="flex-grow w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-[var(--primary)] dark:focus:ring-[var(--secondary-light)]">
+            <button id="chatbot-send" class="btn btn-primary shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 16.571V11a1 1 0 112 0v5.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+              </svg>
+              <span>Send</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Export Report Section -->
+    <section id="export" class="py-16 px-6 section section-bg-alt">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-[var(--primary)] dark:text-[var(--secondary-light)] mb-10">Download Your Report</h2>
+        <div class="card p-8 text-center max-w-lg mx-auto">
+          <p class="text-gray-600 dark:text-gray-400 text-base mb-6">Get a comprehensive PDF report of your current marketing dashboard analytics and insights.</p>
+          <button id="export-report" class="btn btn-primary">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+            </svg>
+            <span>Export as PDF</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!-- Footer -->
+<footer id="contact" class="bg-cover bg-center bg-no-repeat text-gray-300 py-16 px-6 relative" style="background-image: url('your-image-url.jpg');">
+    <div class="absolute inset-0 bg-black opacity-40"></div> <!-- Overlay for background image -->
+  
+    <div class="max-w-7xl mx-auto text-center relative z-10">
+      <!-- Footer Header Section -->
+      <div class="mb-12">
+        <h3 class="text-4xl font-semibold text-white mb-4">Mektronics Technical Services Ltd.</h3>
+      </div>
+  
+      <!-- Contact Information Section -->
+      <div class="space-y-6 mb-12">
+        <div class="text-white">
+          <h4 class="text-2xl font-semibold mb-2">📞 Contact Developer</h4>
+          <p class="text-base">
+            <a href="tel:+8801747292277" class="hover:text-[#25D366] transition duration-300">+8801747292277</a>
+          </p>
+        </div>
+        
+        <div class="text-white">
+          <h4 class="text-2xl font-semibold mb-2">📞 Contact Engineer</h4>
+          <p class="text-base">
+            <a href="tel:+8801848307093" class="hover:text-[#25D366] transition duration-300">+88 01848307093</a>
+          </p>
+        </div>
+        
+        <div class="text-white">
+          <h4 class="text-2xl font-semibold mb-2">📍 Address</h4>
+          <p class="text-base">4th Floor, 113/B, Love Road, Tejgaon Industrial Area, Dhaka, Bangladesh</p>
+        </div>
+      </div>
+  
+      <!-- Premium WhatsApp Button -->
+      <div class="mb-12">
+        <a href="https://wa.me/8801848307093" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#25D366] hover:bg-[#128C7E] text-white text-xl font-semibold px-8 py-4 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-white mr-3" viewBox="0 0 24 24">
+            <path d="M20.52 3.48a11.94 11.94 0 0 0-16.9 0 11.93 11.93 0 0 0-2.64 12.87L.7 23.3a1 1 0 0 0 1.27 1.27l6.95-2.28a11.93 11.93 0 0 0 12.87-2.64 11.94 11.94 0 0 0 0-16.9Zm-2.83 14.07a9.12 9.12 0 0 1-10.07 1.69 1 1 0 0 0-.75 0l-4.9 1.61 1.61-4.9a1 1 0 0 0 0-.75 9.12 9.12 0 1 1 14.11 2.35Zm-1.87-2.5-1.9-.54a1 1 0 0 0-1 .26l-.58.6a6.63 6.63 0 0 1-3.13-3.13l.6-.58a1 1 0 0 0 .26-1l-.54-1.9a1 1 0 0 0-1.01-.72 2.8 2.8 0 0 0-2.57 2.93c.12 1.7 1.08 3.52 2.7 5.14s3.44 2.58 5.14 2.7a2.8 2.8 0 0 0 2.93-2.57 1 1 0 0 0-.71-1.01Z"/>
+          </svg>
+          Contact on WhatsApp
+        </a>
+      </div>
+  
+      <!-- Social Media Links Section -->
+      <div class="flex justify-center gap-8 mb-12">
+        <a href="https://www.facebook.com/MektronicsGroup" target="_blank" class="text-white hover:text-[#25D366] text-3xl transition duration-300">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://twitter.com/MektronicsGroup" target="_blank" class="text-white hover:text-[#25D366] text-3xl transition duration-300">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/mektronicsgroup" target="_blank" class="text-white hover:text-[#25D366] text-3xl transition duration-300">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+  
+      <!-- Footer Copyright Section -->
+      <div class="border-t border-gray-700 pt-6 mt-6">
+        <p class="text-sm text-gray-400">© <span id="footer-year">2025</span> Mektronicsgroup. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  
+  
+  
+
+  <!-- Ad Preview Modal -->
+  <div id="ad-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeAdPreview()">×</span>
+      <h3 class="text-xl font-semibold text-[var(--primary)] dark:text-[var(--secondary-light)] mb-6">Customize & Preview Google Ad</h3>
+      <div class="space-y-4">
+        <div>
+          <label for="ad-headline" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Headline</label>
+          <input id="ad-headline" type="text" value="High-Quality Generators in Bangladesh | Mektronicsgroup" class="w-full border rounded-lg px-3 py-2 mt-1 text-sm">
+        </div>
+        <div>
+          <label for="ad-description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Description</label>
+          <input id="ad-description" type="text" value="Reliable Forest City Generators (50-500kVA). Expert service & support. Get your free quote today!" class="w-full border rounded-lg px-3 py-2 mt-1 text-sm">
+        </div>
+        <div>
+          <label for="ad-url" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Display URL</label>
+          <input id="ad-url" type="text" value="mektronicsgroup.com/generators" class="w-full border rounded-lg px-3 py-2 mt-1 text-sm">
+        </div>
+        <!-- Live Preview Area -->
+        <div class="border-t border-gray-200 dark:border-gray-700 pt-6 mt-6">
+          <h4 class="text-lg font-semibold text-[var(--primary)] dark:text-[var(--secondary-light)] mb-3">Ad Preview</h4>
+          <div class="p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 shadow-sm">
+             <p class="text-blue-700 dark:text-blue-400 font-medium text-lg hover:underline cursor-pointer"><span id="preview-headline">High-Quality Generators in Bangladesh | Mektronicsgroup</span></p>
+             <p class="text-sm text-green-700 dark:text-green-400"><span id="preview-url">mektronicsgroup.com/generators</span></p>
+             <p class="text-gray-700 dark:text-gray-300 text-sm mt-1"><span id="preview-description">Reliable Forest City Generators (50-500kVA). Expert service & support. Get your free quote today!</span></p>
+          </div>
+        </div>
+        <div class="text-right mt-6">
+            <button class="btn btn-outline mr-2" onclick="closeAdPreview()">Cancel</button>
+            <button class="btn btn-primary" onclick="closeAdPreview()">Save Ad</button> <!-- Simulates saving -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Action Buttons -->
+  <div class="live-chat fab" id="live-chat" title="Live Chat">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+    </svg>
+  </div>
+  <div class="back-to-top fab" id="back-to-top" title="Back to Top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path> <!-- Changed Arrow -->
+    </svg>
+  </div>
+
+  <!-- Load JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <!-- Load Your Custom JavaScript File -->
+  <script src="script.js"></script>
+
+</body>
+</html>
